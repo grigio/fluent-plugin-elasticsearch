@@ -61,7 +61,7 @@ class Fluent::ElasticsearchOutput < Fluent::BufferedOutput
 
     http = Net::HTTP.new(@host, @port.to_i)
     request = Net::HTTP::Post.new("/_bulk",
-      {'Referer': @host }
+      {'Referer' => @host }
     )
     request.body = bulk_message.join("\n")
     http.request(request).value
